@@ -69,7 +69,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 <th width="280">Diagram Ilustrasi untuk NodeMCU</th>
 </tr>
 <tr>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/96ad48e1-da23-40aa-8621-dadf891be8d5" alt="infrastructure"></td>
+<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/cc47b1c3-2e62-4510-8784-e31fdeb50576" alt="infrastructure"></td>
 <td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/0244b939-a45d-4cc7-945d-ad85096ca82a" alt="pd-esp32"></td>
 <td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/44fc459b-b9b8-49ae-8990-2a96e7acc66a" alt="pd-nodemcu"></td>
 </tr>
@@ -79,7 +79,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 <th width="840">Diagram Sistem</th>
 </tr>
 <tr>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/5f8ac418-c318-4524-9914-bc91d41deca7" alt="systems-diagram"></td>
+<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/de24e3ca-eceb-4695-98cd-93b95ebd4857" alt="systems-diagram"></td>
 </tr>
 </table>
 
