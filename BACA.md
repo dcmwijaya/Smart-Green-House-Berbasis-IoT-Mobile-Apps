@@ -24,7 +24,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 | Aktuator | • Submersible pump (x1)<br>• Solenoid Door Lock (x1)<br>• Piezo buzzer (x1) |
 | Sensor | • FC-28: Kelembaban Tanah Resistif (x1)<br>• LDR: Resistor Cahaya (x1)<br>• DHT22: Suhu & Kelembaban Udara (x1)<br>• SW-420: Getaran (x1)<br>• Pembaca RFID (x1) |
 | Layar | LCD I2C (x1) |
-| Komponen Lainnya | • Kabel Mikro USB - USB tipe A (x1)<br>• Kabel jumper (1 set)<br>• Switching power supply 12V 3A (x1)<br>• Electrical relay 1 channel (x1)<br>• Step Down LM2596 Adjustable 3A DC-DC (x2)<br>• Breadboard (x2)<br>• Papan ekspansi NodeMCU (x1)<br>• Kotak casing (x1)<br>• Kartu RFID (x2)<br>• Connector male jack DC (x1)<br>• Baut plus (1 set)<br>• Mur (1 set) |
+| Komponen Lainnya | • Kabel USB Mikro - USB tipe A (x1)<br>• Kabel jumper (1 set)<br>• Switching power supply 12V 3A (x1)<br>• Electrical relay 1 channel (x1)<br>• Step Down LM2596 Adjustable 3A DC-DC (x2)<br>• Breadboard (x2)<br>• Papan ekspansi NodeMCU (x1)<br>• Kotak casing (x1)<br>• Kartu RFID (x2)<br>• Connector male jack DC (x1)<br>• Baut plus (1 set)<br>• Mur (1 set) |
 
 <br><br>
 
