@@ -91,15 +91,15 @@ void Threshold(){
       }
     }
   } 
-  if (moisture >= 14.5 && moisture < 100){
+  if (moisture >= 60){
     digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
   }
-  if (moisture >= 11.8 && moisture < 14.5) { 
+  if (moisture > 40 && moisture < 60) { 
     digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
   }
-  if (moisture >= 0 && moisture < 11.8) {
+  if (moisture <= 40) {
     digitalWrite(PIN_WATERPUMP, relayON);
     pump = "ON";
   }
