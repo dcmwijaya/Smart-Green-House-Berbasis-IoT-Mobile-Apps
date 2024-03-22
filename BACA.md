@@ -20,7 +20,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 | Arsitektur IoT | 4 Lapisan |
 | Dukungan Aplikasi | MIT App Inventor |
 | Bahasa Pemrograman | C/C++ |
-| Pustaka Arduino | • WiFi (bawaan)<br>• HTTPClient (bawaan)<br>• ESP8266WiFi (bawaan)<br>• ESP8266HTTPClient (bawaan)<br>• Wire (bawaan)<br>• SPI (bawaan)<br>• DHT_sensor_library<br>• LiquidCrystal_I2C<br>• FC28<br>• MFRC522 |
+| Pustaka Arduino | • WiFi (bawaan)<br>• HTTPClient (bawaan)<br>• ESP8266WiFi (bawaan)<br>• ESP8266HTTPClient (bawaan)<br>• Wire (bawaan)<br>• SPI (bawaan)<br>• DHT_sensor_library<br>• LiquidCrystal_I2C<br>• ESP_FC28_Library<br>• MFRC522 |
 | Aktuator | • Submersible pump (x1)<br>• Solenoid Door Lock (x1)<br>• Piezo buzzer (x1) |
 | Sensor | • FC-28: Kelembaban Tanah Resistif (x1)<br>• LDR: Resistor Cahaya (x1)<br>• DHT22: Suhu & Kelembaban Udara (x1)<br>• SW-420: Getaran (x1)<br>• Pembaca RFID (x1) |
 | Layar | LCD I2C (x1) |
@@ -236,7 +236,19 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 
    </td></tr></table><br>
    
-2. Membuat applications :
+2. Mengaktifkan access key :
+
+   <table><tr><td width="810">
+      
+   • Masuk ke menu ``` Account ```.
+
+   • Klik ``` Get Access Key ``` untuk menghasilkan access key. Proses ini hanya perlu dilakukan sekali.
+
+   • Jika anda sudah pernah mengaktifkan access key sebelumnya, lewati langkah ini.
+
+   </td></tr></table><br>
+   
+3. Membuat applications :
 
    <table><tr><td width="810">
       
@@ -251,7 +263,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 
    </td></tr></table><br>
    
-3. Membuat device :
+4. Membuat device :
 
    <table><tr><td width="810">
       
@@ -263,7 +275,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 
    </td></tr></table><br>
    
-4. Konfigurasi firmware :
+5. Konfigurasi firmware :
 
    <table><tr><td width="810">
       
