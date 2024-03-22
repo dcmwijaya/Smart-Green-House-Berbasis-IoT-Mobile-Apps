@@ -20,7 +20,7 @@ Green House is a building for plant cultivation that has a translucent roof and 
 | IoT Architecture | 4 Layer |
 | Application Support | MIT App Inventor |
 | Programming Language | C/C++ |
-| Arduino Library | • WiFi (default)<br>• HTTPClient (default)<br>• ESP8266WiFi (default)<br>• ESP8266HTTPClient (default)<br>• Wire (default)<br>• SPI (default)<br>• DHT_sensor_library<br>• LiquidCrystal_I2C<br>• FC28<br>• MFRC522 |
+| Arduino Library | • WiFi (default)<br>• HTTPClient (default)<br>• ESP8266WiFi (default)<br>• ESP8266HTTPClient (default)<br>• Wire (default)<br>• SPI (default)<br>• DHT_sensor_library<br>• LiquidCrystal_I2C<br>• ESP-FC28-Library<br>• MFRC522 |
 | Actuators | • Submersible pump (x1)<br>• Solenoid Door Lock (x1)<br>• Piezo buzzer (x1) |
 | Sensor | • FC-28: Resistive Soil Moisture (x1)<br>• LDR: Light Dependent Resistor (x1)<br>• DHT22: Air Temperature & Humidity (x1)<br>• SW-420: Vibration (x1)<br>• RFID Reader (x1) |
 | Display | LCD I2C (x1) |
@@ -236,7 +236,19 @@ Green House is a building for plant cultivation that has a translucent roof and 
 
    </td></tr></table><br>
    
-2. Create applications :
+2. Activate Access Key :
+
+   <table><tr><td width="810">
+      
+   • Go to ``` Account ``` menu.
+
+   • Click ``` Get Access Key ``` to generate an access key. This process only needs to be done once.
+
+   • If you have activated an access key before, skip this step.
+
+   </td></tr></table><br>
+   
+3. Create applications :
 
    <table><tr><td width="810">
       
@@ -251,7 +263,7 @@ Green House is a building for plant cultivation that has a translucent roof and 
 
    </td></tr></table><br>
    
-3. Create a device :
+4. Create a device :
 
    <table><tr><td width="810">
       
@@ -263,7 +275,7 @@ Green House is a building for plant cultivation that has a translucent roof and 
 
    </td></tr></table><br>
    
-4. Firmware configuration :
+5. Firmware configuration :
 
    <table><tr><td width="810">
       
