@@ -3,6 +3,8 @@
 #include <ESP8266HTTPClient.h>
 #include <SPI.h>
 #include <MFRC522.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
 
 // Koneksi
 #define WIFISSID "YOUR_WIFI_NAME"
@@ -29,8 +31,6 @@ MFRC522 rfid(SDA_PIN, RST_PIN); // Konstruktor MFRC522 -> rfid
 #define RSOLENOID_DOORLOCK_PIN D4 // Pin Antarmuka Solenoid Door Lock
 
 // Layar
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x27,16,2);
 
 // Array untuk menampung User ID baru
