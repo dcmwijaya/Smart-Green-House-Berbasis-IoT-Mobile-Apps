@@ -70,43 +70,56 @@ void bacaSensor() {
 
 // Kendali Otomatis Pompa
 void Threshold(){
+  // Jika suhu udara rendah, kelembaban tinggi, dan intensitas cahaya rendah -> dapat diasumsikan bahwa kondisinya sedang malam hari, maka :
   if (temp >= 0 && temp < 16) {
     if (hum > 90 && hum <=100) {
       if (ldr >= 500) {  
-        pump = "OFF";
-        digitalWrite(PIN_WATERPUMP, relayOFF);
+        pump = "OFF"; // status pompa: OFF
+        digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
       }
     }
   }
+  
+  // Jika suhu udara sedang, kelembaban sedang, dan intensitas cahaya sedang -> dapat diasumsikan bahwa kondisinya sedang pagi hari, maka :
   if (temp >= 16 && temp <= 34) {
     if (hum >= 30 && hum <= 90) {
       if (ldr >= 200 && ldr < 500) {  
-        pump = "OFF";
-        digitalWrite(PIN_WATERPUMP, relayOFF);
+        pump = "OFF"; // status pompa: OFF
+        digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
       }
     }
   }
+  
+  // Jika suhu udara tinggi, kelembaban rendah, dan intensitas cahaya tinggi -> dapat diasumsikan bahwa kondisinya sedang siang hari, maka :
   if (temp > 34 && temp <= 100) {
     if (hum >= 0 && hum < 30) {
       if (ldr < 200) {
-        pump = "ON";
-        digitalWrite(PIN_WATERPUMP, relayON);
+        pump = "ON"; // status pompa: ON
+        digitalWrite(PIN_WATERPUMP, relayON); // Pompa air menyala
       }
     }
   } 
+
+  // Jika kondisi tanah basah maka :
   if (moisture >= wetSoil){
-    pump = "OFF";
-    digitalWrite(PIN_WATERPUMP, relayOFF);
+    pump = "OFF"; // status pompa: OFF
+    digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
   }
-  if (moisture > drySoil && moisture < wetSoil) { 
-    pump = "OFF";
-    digitalWrite(PIN_WATERPUMP, relayOFF);
+
+  // Jika kondisi tanah lembab maka :
+  if (moisture > drySoil && moisture < wetSoil) {
+    pump = "OFF"; // status pompa: OFF
+    digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
   }
-  if (moisture <= drySoil) {
-    pump = "ON";
-    digitalWrite(PIN_WATERPUMP, relayON);
+
+  // Jika kondisi tanah kering maka :
+  if (moisture <= drySoil) { 
+    pump = "ON"; // status pompa: ON
+    digitalWrite(PIN_WATERPUMP, relayON); // Pompa air menyala
   }
-  Serial.println("Status Pompa: "+String(pump));
+  
+  // Cetak status pompa ke serial monitor
+  Serial.println("Status Pompa: "+String(pump)); 
   Serial.println("=========================================");
 }
 
