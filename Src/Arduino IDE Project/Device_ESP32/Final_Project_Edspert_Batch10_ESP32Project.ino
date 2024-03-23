@@ -72,38 +72,38 @@ void Threshold(){
   if (temp >= 0 && temp < 16) {
     if (hum > 90 && hum <=100) {
       if (ldr >= 500) {  
-        digitalWrite(PIN_WATERPUMP, relayOFF);
         pump = "OFF";
+        digitalWrite(PIN_WATERPUMP, relayOFF);
       }
     }
   }
   if (temp >= 16 && temp <= 34) {
     if (hum >= 30 && hum <= 90) {
       if (ldr >= 200 && ldr < 500) {  
-        digitalWrite(PIN_WATERPUMP, relayOFF);
         pump = "OFF";
+        digitalWrite(PIN_WATERPUMP, relayOFF);
       }
     }
   }
   if (temp > 34 && temp <= 100) {
     if (hum >= 0 && hum < 30) {
       if (ldr < 200) {
-        digitalWrite(PIN_WATERPUMP, relayON);
         pump = "ON";
+        digitalWrite(PIN_WATERPUMP, relayON);
       }
     }
   } 
   if (moisture >= wetSoil){
-    digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
+    digitalWrite(PIN_WATERPUMP, relayOFF);
   }
   if (moisture > drySoil && moisture < wetSoil) { 
-    digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
+    digitalWrite(PIN_WATERPUMP, relayOFF);
   }
   if (moisture <= drySoil) {
-    digitalWrite(PIN_WATERPUMP, relayON);
     pump = "ON";
+    digitalWrite(PIN_WATERPUMP, relayON);
   }
   Serial.println("Status Pompa: "+String(pump));
   Serial.println("=========================================");
