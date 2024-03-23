@@ -1,4 +1,4 @@
-// Library
+// Pustaka yang digunakan
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <DHT.h>
