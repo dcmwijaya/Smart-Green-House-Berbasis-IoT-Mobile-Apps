@@ -129,13 +129,16 @@ void kirimAntares() {
     bacaSensor(); // Memanggil method bacaSensor
     Threshold(); // Memanggil method Threshold
     
-    if (WiFi.status() == WL_CONNECTED) {
+    if (WiFi.status() == WL_CONNECTED) { // Jika tersambung ke jaringan maka :
+      // Memulai request http
       http.begin(client, serverName);
 
+      // Header http
       http.addHeader("X-M2M-Origin",ACCESSKEY);
       http.addHeader("Content-Type","application/json;ty=4");
       http.addHeader("Accept","application/json");
 
+      // Mengirim data dengan protokol http
       httpRequestData += "{\"m2m:cin\": { \"con\":\"{\\\"Suhu Udara (°C)\\\":\\\"";
       httpRequestData += String(temp);
       httpRequestData += "\\\",\\\"Kelembapan Udara (%)\\\":\\\"";
@@ -148,15 +151,17 @@ void kirimAntares() {
       httpRequestData += String(pump);
       httpRequestData += "\\\"}\"}}";
       // Serial.println(httpRequestData); Serial.println(); // Buka komen ini untuk debugging
-      
+
+      // Respon http
       int httpResponseCode = http.POST(httpRequestData);
       Serial.print("HTTP Response code: ");
       Serial.println(httpResponseCode);
       Serial.println("\n");
 
+      // Mengakhiri request http
       http.end();
     }
-    else {
+    else { // Jika tidak tersambung ke jaringan maka :
       Serial.println("WiFi Disconnected");
     } 
     lastTime = millis();
