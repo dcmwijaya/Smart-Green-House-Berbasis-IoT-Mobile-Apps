@@ -2,7 +2,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <DHT.h>
-#include "FC28.h"
+#include <ESP_FC28.h>
 
 // Koneksi
 #define WIFISSID "YOUR_WIFI_NAME"
@@ -24,7 +24,9 @@ int httpResponseCode;
 DHT dht(PIN_DHT, DHTTYPE);
 #define PIN_LDR 35
 #define PIN_MOISTURE 36
-FC28Sensor fc28;
+#define wetSoil 60 // Nilai batas minimum untuk kondisi tanah 'basah'
+#define drySoil 40 // Nilai batas maksimum untuk kondisi tanah 'kering'
+FC28Sensor fc28(PIN_MOISTURE);
 int moisture = 0;
 int ldr = 0; const float GAMMA = 0.7; const float RL10 = 50; float voltage, resistance, lux; int adcValue = 0;
 int temp = 0;
@@ -53,9 +55,9 @@ void bacaSensor() {
   voltage = adcValue * 5/4095.0; // ESP bit=12 -> 4095, 5=Tegangan Referensi
   resistance = 2000 * voltage / (1 - voltage / 5); // Rumus Resistansi Cahaya
   ldr = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)); // Rumus Intensitas Cahaya
-  moisture = fc28.getSoilMoisture(); // moisture
-  temp = dht.readTemperature(); // ekstrak data temperature
-  hum = dht.readHumidity(); // ekstrak data humidity
+  moisture = fc28.getSoilMoisture(); // Mengukur nilai kelembaban tanah
+  temp = dht.readTemperature(); // Mengukur nilai temperature udara
+  hum = dht.readHumidity(); // Mengukur nilai kelembaban udara
   
   // display data ke serial monitor
   Serial.println("=========================================");
@@ -91,15 +93,15 @@ void Threshold(){
       }
     }
   } 
-  if (moisture >= 60){
+  if (moisture >= wetSoil){
     digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
   }
-  if (moisture > 40 && moisture < 60) { 
+  if (moisture > drySoil && moisture < wetSoil) { 
     digitalWrite(PIN_WATERPUMP, relayOFF);
     pump = "OFF";
   }
-  if (moisture <= 40) {
+  if (moisture <= drySoil) {
     digitalWrite(PIN_WATERPUMP, relayON);
     pump = "ON";
   }
@@ -145,23 +147,22 @@ void kirimAntares() {
     } 
     lastTime = millis();
   }
-  delay(5000);
+  delay(5000); // Menunda selama 5 detik
 }
 
 // Method untuk mengatur inisiasi awal
 void setup() {
-  // inisiasi pin sensor
-  fc28.initFC28Sensor(9600, PIN_MOISTURE);
-  dht.begin();
-  pinMode(PIN_LDR, INPUT);
-  pinMode(PIN_WATERPUMP, OUTPUT);
-  // Memanggil method ConnectToWiFi
-  ConnectToWiFi(); 
+  Serial.begin(115200); // baudrate untuk papan ESP
+  fc28.begin(); // Memulai sensor fc-28
+  dht.begin(); // Memulai sensor dht
+  pinMode(PIN_LDR, INPUT); // LDR sebagai input
+  pinMode(PIN_WATERPUMP, OUTPUT); // Pompa sebagai output
+  ConnectToWiFi(); // Memanggil method ConnectToWiFi
 }
 
 // Method untuk mengatur perulangan
 void loop() {
-  kirimAntares();
+  kirimAntares(); // Memanggil method kirimAntares
 }
 
 // Nama Final Project : Smart Green House (Device-1: ESP32)
