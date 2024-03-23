@@ -42,7 +42,7 @@ int temp = 0, hum = 0; // DHT
 void ConnectToWiFi() {
   WiFi.mode(WIFI_STA); // Membuat perangkat sebagai station
   WiFi.begin(WIFISSID, PASSWORD); Serial.print("Menyambungkan ke jaringan"); // Memulai jaringan
-  while (WiFi.status() != WL_CONNECTED) { // Jika tidak berhasil terhubung ke jaringan maka cetak di serial monitor :
+  while (WiFi.status() != WL_CONNECTED) { // Selama tidak berhasil terhubung ke jaringan maka cetak di serial monitor :
     Serial.print("."); delay(500);
   }
   if (WiFi.status() == WL_CONNECTED) { // Jika berhasil terhubung ke jaringan maka cetak di serial monitor :
