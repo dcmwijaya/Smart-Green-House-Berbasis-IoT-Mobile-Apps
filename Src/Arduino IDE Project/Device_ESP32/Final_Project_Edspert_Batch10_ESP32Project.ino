@@ -125,7 +125,7 @@ void Threshold(){
 
 // Kirim Data ke Antares
 void kirimAntares() {
-  if ((millis() - lastTime) > timerDelay) {
+  if ((millis() - lastTime) > timerDelay) { // Jika waktu sekarang dikurangi waktu terakhir lebih besar dari 5 detik maka :
     bacaSensor(); // Memanggil method bacaSensor
     Threshold(); // Memanggil method Threshold
     
@@ -138,7 +138,7 @@ void kirimAntares() {
       http.addHeader("Content-Type","application/json;ty=4");
       http.addHeader("Accept","application/json");
 
-      // Mengirim data dengan protokol http
+      // Data sensor semuanya dikirim ke server melalui protokol http
       httpRequestData += "{\"m2m:cin\": { \"con\":\"{\\\"Suhu Udara (°C)\\\":\\\"";
       httpRequestData += String(temp);
       httpRequestData += "\\\",\\\"Kelembapan Udara (%)\\\":\\\"";
@@ -164,9 +164,8 @@ void kirimAntares() {
     else { // Jika tidak tersambung ke jaringan maka :
       Serial.println("WiFi Disconnected");
     } 
-    lastTime = millis();
+    lastTime = millis(); // Untuk menghitung waktu yang telah berlalu sejak pengiriman data terakhir
   }
-  delay(5000); // Menunda selama 5 detik
 }
 
 // Method untuk mengatur inisiasi awal
