@@ -170,7 +170,7 @@ void kirimAntares() {
 
 // Method untuk mengatur inisiasi awal
 void setup() {
-  Serial.begin(115200); // baudrate untuk papan ESP
+  Serial.begin(115200); // Baudrate untuk papan ESP
   fc28.begin(); // Memulai sensor fc-28
   dht.begin(); // Memulai sensor dht
   pinMode(PIN_LDR, INPUT); // LDR sebagai input
