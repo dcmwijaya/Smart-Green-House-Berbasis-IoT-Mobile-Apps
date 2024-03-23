@@ -19,34 +19,35 @@ String httpRequestData;
 int httpResponseCode;
 
 // Sensor
-#define PIN_DHT 13
-#define DHTTYPE DHT22
-DHT dht(PIN_DHT, DHTTYPE);
-#define PIN_LDR 35
-#define PIN_MOISTURE 36
+#define PIN_DHT 13 // Pin Antarmuka Sensor DHT
+#define DHTTYPE DHT22 // Tipe Sensor DHT -> DHT22
+DHT dht(PIN_DHT, DHTTYPE); // Konstruktor DHT -> dht
+#define PIN_LDR 35 // Pin Antarmuka Sensor LDR
+#define PIN_MOISTURE 36 // Pin Antarmuka Sensor FC-28
 #define wetSoil 60 // Nilai batas minimum untuk kondisi tanah 'basah'
 #define drySoil 40 // Nilai batas maksimum untuk kondisi tanah 'kering'
-FC28Sensor fc28(PIN_MOISTURE);
-int moisture = 0;
-int ldr = 0; const float GAMMA = 0.7; const float RL10 = 50; float voltage, resistance, lux; int adcValue = 0;
-int temp = 0;
-int hum = 0;
+FC28Sensor fc28(PIN_MOISTURE); // Konstruktor FC28Sensor -> fc28
 
-// Actuator
-#define PIN_WATERPUMP 4
-bool relayON = LOW; bool relayOFF = HIGH; // Active Low Trigger
-String pump;
+// Aktuator
+#define PIN_WATERPUMP 4 // Pin Antarmuka Pompa
+bool relayON = LOW; bool relayOFF = HIGH; // Trigger yang ada pada relai -> Active Low
+String pump; // Status pompa
+
+// Variabel untuk keperluan sensor
+int moisture = 0; // FC-28
+int ldr = 0, adcValue = 0; const float GAMMA = 0.7, RL10 = 50; float voltage, resistance, lux; // LDR
+int temp = 0, hum = 0; // DHT
 
 // Method untuk mengatur konektivitas
 void ConnectToWiFi() {
   WiFi.mode(WIFI_STA); // Membuat perangkat sebagai station
-  WiFi.begin(WIFISSID, PASSWORD); // Memulai menyambungkan ke jaringan
-  Serial.print("Configuring to WiFi");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(500);
+  WiFi.begin(WIFISSID, PASSWORD); Serial.print("Menyambungkan ke jaringan"); // Memulai jaringan
+  while (WiFi.status() != WL_CONNECTED) { // Jika tidak berhasil terhubung ke jaringan maka cetak di serial monitor :
+    Serial.print("."); delay(500);
   }
-  Serial.println("\nTelah terhubung ke "+String(WIFISSID)+"\n\n");
+  if (WiFi.status() == WL_CONNECTED) { // Jika berhasil terhubung ke jaringan maka cetak di serial monitor :
+    Serial.println("\nTelah terhubung ke "+String(WIFISSID)+"\n\n");
+  }
 }
 
 // Baca Data Sensor
@@ -59,7 +60,7 @@ void bacaSensor() {
   temp = dht.readTemperature(); // Mengukur nilai temperature udara
   hum = dht.readHumidity(); // Mengukur nilai kelembaban udara
   
-  // display data ke serial monitor
+  // Display data ke serial monitor
   Serial.println("=========================================");
   Serial.println("Suhu Udara: "+String(temp)+"°C");
   Serial.println("Kelembaban Udara: "+String(hum)+"%");
@@ -112,8 +113,9 @@ void Threshold(){
 // Kirim Data ke Antares
 void kirimAntares() {
   if ((millis() - lastTime) > timerDelay) {
-    bacaSensor();
-    Threshold();
+    bacaSensor(); // Memanggil method bacaSensor
+    Threshold(); // Memanggil method Threshold
+    
     if (WiFi.status() == WL_CONNECTED) {
       http.begin(client, serverName);
 
@@ -132,8 +134,7 @@ void kirimAntares() {
       httpRequestData += "\\\",\\\"Status Pompa\\\":\\\"";
       httpRequestData += String(pump);
       httpRequestData += "\\\"}\"}}";
-      // Serial.println(httpRequestData);
-      // Serial.println();
+      // Serial.println(httpRequestData); Serial.println(); // Buka komen ini untuk debugging
       
       int httpResponseCode = http.POST(httpRequestData);
       Serial.print("HTTP Response code: ");
