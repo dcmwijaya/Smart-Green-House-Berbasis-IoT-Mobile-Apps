@@ -74,7 +74,7 @@ void bacaSensorRFID(){
     return;
   }
   if (rfid.uid.uidByte[0] != UniqueIDentifier[0] || rfid.uid.uidByte[1] != UniqueIDentifier[1] || rfid.uid.uidByte[2] != UniqueIDentifier[2] || rfid.uid.uidByte[3] != UniqueIDentifier[3]) {
-    // Store NUID into array
+    // Menampung User ID baru ke dalam array
     for (byte i = 0; i < 4; i++) {
       UniqueIDentifier[i] = rfid.uid.uidByte[i];
       accessCode.concat(String(UniqueIDentifier[i] < 0x10 ? " 0" : " "));
@@ -82,23 +82,23 @@ void bacaSensorRFID(){
     } accessCode.toUpperCase();
     Serial.print(F("\nUID tag :"));
     printHex(rfid.uid.uidByte, rfid.uid.size);
-    if(accessCode.substring(1) == UID_RFID1){
+    if(accessCode.substring(1) == UID_RFID1){ // Jika kartu RFID dikenal sebagai User ID-1 maka lakukan :
       Serial.print("\nPesan RFID : "); Serial.println("Akses Buka Pintu Green House Berhasil"); doorstate = "Open"; 
       responRFID(); // Respon RFID ditampilkan ke LCD
       digitalWrite(RSOLENOID_DOORLOCK_PIN, LOW); delay(1000); // Solenoid door lock: open
     }
-    else if(accessCode.substring(1) == UID_RFID2){
+    else if(accessCode.substring(1) == UID_RFID2){ // Jika kartu RFID dikenal sebagai User ID-2 maka lakukan :
       Serial.print("\nPesan RFID : "); Serial.println("Akses Tutup Pintu Green House Berhasil"); doorstate = "Closed"; 
       responRFID(); // Respon RFID ditampilkan ke LCD
       digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); delay(1000); // Solenoid door lock: closed
     }  
-    else{
+    else{ // Jika kartu RFID tidak dikenal maka :
       Serial.print("\nPesan RFID : "); Serial.println("Akses Green House Gagal/UID Belum Terdaftar"); doorstate = "Closed"; 
       responRFID(); // Respon RFID ditampilkan ke LCD
       digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); delay(1000); // Solenoid door lock: closed
     }
   }
-  else {
+  else { // Jika tidak ada aktivitas maka :
     Serial.print("\nPesan RFID : "); Serial.println("Akses Green House Steril\n"); doorstate = "Closed"; 
     responRFID(); // Respon RFID ditampilkan ke LCD
     digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); delay(1000); // Solenoid door lock: closed
