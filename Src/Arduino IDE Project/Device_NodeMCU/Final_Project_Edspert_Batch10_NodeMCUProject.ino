@@ -185,14 +185,14 @@ void kirimDataAntares(){
 // Method untuk mengatur inisiasi awal
 void setup() {
   Serial.begin(115200); // Baudrate untuk papan NodeMCU
-  initSensorRFID(); // Memanggil method initSensorRFID
-  ConnectToWiFi(); // Memanggil method ConnectToWiFi
-  LCDinit(); // Memanggil method LCDinit
   pinMode(SW420_PIN,INPUT); // Inisialisasi pin sw-420 sebagai INPUT
   pinMode(BUZZER_PIN,OUTPUT); // Inisialisasi pin buzzer sebagai OUTPUT
   pinMode(RSOLENOID_DOORLOCK_PIN,OUTPUT); // Inisialisasi pin solenoid door lock sebagai OUTPUT
   digitalWrite(BUZZER_PIN, LOW); // Default buzzer: OFF
   digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); // Default solenoid door lock: OFF (Mengunci)
+  initSensorRFID(); // Memanggil method initSensorRFID
+  ConnectToWiFi(); // Memanggil method ConnectToWiFi
+  LCDinit(); // Memanggil method LCDinit
 }
 
 // Method ini akan dikerjakan berulang kali
