@@ -106,6 +106,7 @@ void bacaSensorRFID(){
   }
 }
 
+// Method untuk mencetak nilai hex
 void printHex(byte *buffer, byte bufferSize) {
   for (byte i = 0; i < bufferSize; i++) {
     Serial.print(buffer[i] < 0x10 ? " 0" : " ");
@@ -131,27 +132,22 @@ void bacaSensorSW420(){
   }
 }
 
-// Method untuk mengatur tampilan LCD
+// Method untuk memulai LCD
 void LCDinit(){
   lcd.init(); // Memulai LCD
   lcd.backlight(); delay(250); lcd.noBacklight(); delay(250); lcd.backlight(); // Splash Screen
   lcd.setCursor(0,0); lcd.print("Smart GreenHouse"); lcd.setCursor(4,1); lcd.print("Device-2");delay(10000); // Menampilkan data pada LCD
   lcd.clear(); // Menghapus tampilan data yang ada pada LCD
 }
+
+// Method untuk menampilkan status pintu ke LCD
 void responRFID(){
   lcd.backlight(); lcd.setCursor(0,0); lcd.print("INFO -----------"); lcd.setCursor(0,1); lcd.print("Stt.Pintu:"+String(doorstate)); // Cetak respon RFID pada LCD
   Serial.println("Status Pintu: "+doorstate); // Cetak respon RFID pada serial monitor
 }
 
-// Method untuk mengolah nilai sensor dan mengatur otomatisasi aktuator
-void Olah_Data(){
-  bacaSensorRFID(); // Memanggil method bacaSensorRFID
-  bacaSensorSW420(); // Memanggil method bacaSensorSW420
-}
-
 // Kirim Data ke Antares
 void kirimDataAntares(){
-  Olah_Data(); // Memanggil method Olah_Data
   if ((millis() - lastTime) > timerDelay) { // Jika waktu sekarang dikurangi waktu terakhir lebih besar dari 5 detik maka :
     if (WiFi.status() == WL_CONNECTED) { // Jika tersambung ke jaringan maka :
       // Memulai request http
@@ -189,18 +185,20 @@ void kirimDataAntares(){
 // Method untuk mengatur inisiasi awal
 void setup() {
   Serial.begin(115200); // Baudrate untuk papan NodeMCU
-  pinMode(SW420_PIN,INPUT); // Inisialisasi pin sw-420 sebagai INPUT
-  pinMode(BUZZER_PIN,OUTPUT); // Inisialisasi pin buzzer sebagai OUTPUT
-  digitalWrite(BUZZER_PIN, LOW); // Default buzzer: OFF
-  pinMode(RSOLENOID_DOORLOCK_PIN,OUTPUT); // Inisialisasi pin solenoid door lock sebagai OUTPUT
-  digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); // Default solenoid door lock: OFF (Mengunci)
+  initSensorRFID(); // Memanggil method initSensorRFID
   ConnectToWiFi(); // Memanggil method ConnectToWiFi
   LCDinit(); // Memanggil method LCDinit
-  initSensorRFID(); // Memanggil method initSensorRFID
+  pinMode(SW420_PIN,INPUT); // Inisialisasi pin sw-420 sebagai INPUT
+  pinMode(BUZZER_PIN,OUTPUT); // Inisialisasi pin buzzer sebagai OUTPUT
+  pinMode(RSOLENOID_DOORLOCK_PIN,OUTPUT); // Inisialisasi pin solenoid door lock sebagai OUTPUT
+  digitalWrite(BUZZER_PIN, LOW); // Default buzzer: OFF
+  digitalWrite(RSOLENOID_DOORLOCK_PIN, HIGH); // Default solenoid door lock: OFF (Mengunci)
 }
 
 // Method ini akan dikerjakan berulang kali
 void loop(){
+  bacaSensorRFID(); // Memanggil method bacaSensorRFID
+  bacaSensorSW420(); // Memanggil method bacaSensorSW420
   kirimDataAntares(); // Memanggil method kirimDataAntares
 }
 
