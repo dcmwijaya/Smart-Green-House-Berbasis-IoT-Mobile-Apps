@@ -77,19 +77,21 @@ void Threshold(){
   }
 
   // Jika kelembaban tinggi, maka :
-  if (hum > 90 && hum <=100) {
+  if (hum > 90 && hum <= 100) {
     pump = "OFF"; // status pompa: OFF
     digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
   }
 
   // Jika intensitas cahaya rendah, maka :
-  if (ldr >= 500) {
+  if (ldr >= 500 && ldr <= 100000) {
     pump = "OFF"; // status pompa: OFF
     digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati 
   }
 
   // Jika suhu udara sedang, maka :
   if (temp >= 16 && temp <= 34) { 
+    pump = "OFF"; // status pompa: OFF
+    digitalWrite(PIN_WATERPUMP, relayOFF); // Pompa air mati
   }
 
   // Jika kelembaban sedang, maka :
@@ -105,7 +107,7 @@ void Threshold(){
   }
 
   // Jika suhu udara tinggi, maka :
-  if (temp > 34 && temp <= 100) { 
+  if (temp > 34 && temp <= 80) { 
     pump = "ON"; // status pompa: ON
     digitalWrite(PIN_WATERPUMP, relayON); // Pompa air menyala
   }
@@ -117,7 +119,7 @@ void Threshold(){
   }
   
   // Jika intensitas cahaya tinggi, maka :
-  if (ldr < 200) {
+  if (ldr >= 0 && ldr < 200) {
     pump = "ON"; // status pompa: ON
     digitalWrite(PIN_WATERPUMP, relayON); // Pompa air menyala
   }
