@@ -33,7 +33,7 @@ MFRC522 rfid(SDA_PIN, RST_PIN); // Konstruktor MFRC522 -> rfid
 // Layar
 LiquidCrystal_I2C lcd(0x27,16,2);
 
-// Array untuk menampung User ID baru
+// Array untuk menampung User ID
 byte UniqueIDentifier[4];
 
 // Variabel Global
@@ -74,7 +74,7 @@ void bacaSensorRFID(){
     return;
   }
   if (rfid.uid.uidByte[0] != UniqueIDentifier[0] || rfid.uid.uidByte[1] != UniqueIDentifier[1] || rfid.uid.uidByte[2] != UniqueIDentifier[2] || rfid.uid.uidByte[3] != UniqueIDentifier[3]) {
-    // Menampung User ID baru ke dalam array
+    // Menampung User ID ke dalam array
     for (byte i = 0; i < 4; i++) {
       UniqueIDentifier[i] = rfid.uid.uidByte[i];
       accessCode.concat(String(UniqueIDentifier[i] < 0x10 ? " 0" : " "));
