@@ -17,6 +17,8 @@ WiFiClient client;
 HTTPClient http;
 String httpRequestData;
 int httpResponseCode;
+unsigned long lastTime = 0;
+unsigned long timerDelay = 5000;
 
 // Sensor
 #define SW420_PIN D8 // Pin Antarmuka Sensor Getaran
@@ -33,16 +35,15 @@ MFRC522 rfid(SDA_PIN, RST_PIN); // Konstruktor MFRC522 -> rfid
 // Layar
 LiquidCrystal_I2C lcd(0x27,16,2);
 
-// Array untuk menampung User ID
-byte UniqueIDentifier[4];
+// Variabel untuk keperluan sensor
+byte UniqueIDentifier[4]; // Array untuk menampung User ID
+String accessCode; // Variabel ini untuk menampung hasil pembacaan kode RFID
 
-// Variabel Global
-int vibration; 
-String alarm_keamanan;
-String doorstate;
-String accessCode;
-unsigned long lastTime = 0;
-unsigned long timerDelay = 5000;
+// Variabel untuk keperluan aktuator
+int vibration; // Variabel ini untuk menampung nilai getaran
+String alarm_keamanan; // Variabel ini untuk status buzzer: ON/OFF
+String doorstate; // Variabel ini untuk status kunci pintu: Terbuka/Tertutup
+bool relayON = LOW; bool relayOFF = HIGH; // Silakan cek terlebih dahulu apakah relay anda itu Active High / Low, kalau relay saya Active Low
 
 // Method untuk mengatur konektivitas
 void ConnectToWiFi() {
