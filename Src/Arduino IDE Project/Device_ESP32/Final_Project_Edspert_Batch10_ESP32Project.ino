@@ -54,8 +54,9 @@ void ConnectToWiFi() {
 void bacaSensor() {
   adcValue = analogRead(PIN_LDR); // Baca Tegangan Analog Sensor LDR
   voltage = adcValue * 5/4095.0; // ESP bit=12 -> 4095, 5=Tegangan Referensi
-  resistance = 2000 * voltage / (1 - voltage / 5); // Rumus Resistansi Cahaya
-  ldr = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)); // Rumus Intensitas Cahaya
+  resistance = 2000 * voltage / (1 - voltage / 5); // Menghitung Resistansi Cahaya
+  ldr = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA)); // Mengukur nilai intensitas cahaya
+  fc28.calibration(7); // 7 => agar pembacaan sensor fc28 mendekati benar (diisi bebas)
   moisture = fc28.getSoilMoisture(); // Mengukur nilai kelembaban tanah
   temp = dht.readTemperature(); // Mengukur nilai temperature udara
   hum = dht.readHumidity(); // Mengukur nilai kelembaban udara
