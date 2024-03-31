@@ -43,7 +43,7 @@ String accessCode; // Variabel ini untuk menampung hasil pembacaan kode RFID
 int vibration; // Variabel ini untuk menampung nilai getaran
 String alarm_keamanan; // Variabel ini untuk status buzzer: ON/OFF
 String doorstate; // Variabel ini untuk status kunci pintu: Terbuka/Tertutup
-bool relayON = LOW; bool relayOFF = HIGH; // Silakan cek terlebih dahulu apakah relay anda itu Active High / Low, kalau relay saya Active Low
+bool relayON = HIGH; bool relayOFF = LOW; // Jika anda menggunakan NO pada relay maka yang terjadi adalah Active Low, sedangkan jika anda menggunakan NC pada relay maka yang terjadi adalah Active High
 
 // Method untuk mengatur konektivitas
 void ConnectToWiFi() {
