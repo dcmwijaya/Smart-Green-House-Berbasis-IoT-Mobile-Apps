@@ -30,7 +30,7 @@ FC28Sensor fc28(PIN_MOISTURE); // Konstruktor FC28Sensor -> fc28
 
 // Aktuator
 #define PIN_WATERPUMP 4 // Pin Antarmuka Pompa
-bool relayON = LOW; bool relayOFF = HIGH; // Trigger yang ada pada relai -> Active Low
+bool relayON = HIGH; bool relayOFF = LOW; // Jika anda menggunakan NO pada relay maka yang terjadi adalah Active Low, sedangkan jika anda menggunakan NC pada relay maka yang terjadi adalah Active High
 String pump; // Status pompa
 
 // Variabel untuk keperluan sensor
