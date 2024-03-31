@@ -70,7 +70,7 @@ Green House is a building for plant cultivation that has a translucent roof and 
 </tr>
 <tr>
 <td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/cc47b1c3-2e62-4510-8784-e31fdeb50576" alt="infrastructure"></td>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/cbd7d3d4-218c-4a08-bc91-c4e480d2f1fa" alt="pd-esp32"></td>
+<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/5ee6557f-1828-4790-9f06-68b6947d6848" alt="pd-esp32"></td>
 <td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/44fc459b-b9b8-49ae-8990-2a96e7acc66a" alt="pd-nodemcu"></td>
 </tr>
 </table>
