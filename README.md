@@ -14,7 +14,7 @@ Green House is a building for plant cultivation that has a translucent roof and 
 | --- | --- |
 | Development Board | • DOIT ESP32 DEVKIT V1<br>• NodeMCU V3 ESP8266 Lolin |
 | Code Editor | Arduino IDE |
-| Driver | • USB-Serial CH340<br>• USB-Serial CP210X |
+| Driver | • CH340 USB Driver<br>• CP210X USB Driver |
 | IoT Platform | Antares |
 | Communications Protocol | • Hypertext Transfer Protocol (HTTP)<br>• Universal Asynchronous Receiver-Transmitter (UART)<br>• Serial Peripheral Interface (SPI)<br>• Inter Integrated Circuit (I2C) |
 | IoT Architecture | 4 Layer |
@@ -34,27 +34,27 @@ Green House is a building for plant cultivation that has a translucent roof and 
    <table><tr><td width="810">
 
    ```
-   https://www.arduino.cc/en/software
+   https://bit.ly/ArduinoIDE_Installer
    ```
 
    </td></tr></table><br>
 
-2. USB-Serial CH340
+2. CH340 USB Driver
 
    <table><tr><td width="810">
    
    ```
-   https://bit.ly/CH340_Driver
+   https://bit.ly/CH340_USB_Driver
    ```
 
    </td></tr></table><br>
 
-3. USB-Serial CP210X
+3. CP210X USB Driver
 
    <table><tr><td width="810">
    
    ```
-   https://bit.ly/CP210X_Driver
+   https://bit.ly/CP210X_USB_Driver
    ```
 
    </td></tr></table>
