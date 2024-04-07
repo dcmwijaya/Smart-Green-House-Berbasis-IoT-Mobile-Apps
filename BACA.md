@@ -14,7 +14,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 | --- | --- |
 | Papan Pengembangan | • DOIT ESP32 DEVKIT V1<br>• NodeMCU V3 ESP8266 Lolin |
 | Editor Kode | Arduino IDE |
-| Driver | • USB-Serial CH340<br>• USB-Serial CP210X |
+| Driver | • CH340 USB Driver<br>• CP210X USB Driver |
 | Platform IoT | Antares |
 | Protokol Komunikasi | • Hypertext Transfer Protocol (HTTP)<br>• Universal Asynchronous Receiver-Transmitter (UART)<br>• Serial Peripheral Interface (SPI)<br>• Inter Integrated Circuit (I2C) |
 | Arsitektur IoT | 4 Lapisan |
@@ -34,27 +34,27 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
    <table><tr><td width="810">
 
    ```
-   https://www.arduino.cc/en/software
+   https://bit.ly/ArduinoIDE_Installer
    ```
 
    </td></tr></table><br>
 
-2. USB-Serial CH340
-
-   <table><tr><td width="810">
-
-   ```
-   https://bit.ly/CH340_Driver
-   ```
-
-   </td></tr></table><br>
-
-3. USB-Serial CP210X
+2. CH340 USB Driver
 
    <table><tr><td width="810">
    
    ```
-   https://bit.ly/CP210X_Driver
+   https://bit.ly/CH340_USB_Driver
+   ```
+
+   </td></tr></table><br>
+
+3. CP210X USB Driver
+
+   <table><tr><td width="810">
+   
+   ```
+   https://bit.ly/CP210X_USB_Driver
    ```
 
    </td></tr></table>
