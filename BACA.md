@@ -1,7 +1,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?style=flat)](https://github.com/ellerbrock/open-source-badges/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?logo=github&color=%23F7DF1E)](https://opensource.org/licenses/MIT)
-![GitHub last commit](https://img.shields.io/github/last-commit/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps)
-![Project](https://img.shields.io/badge/Project-Mobile%20IoT-light.svg?style=flat&logo=arduino&logoColor=white&color=%23F7DF1E)
+![GitHub last commit](https://img.shields.io/github/last-commit/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps?logo=Codeforces&logoColor=white&color=%23F7DF1E)
+![Project](https://img.shields.io/badge/Project-Internet%20of%20Things-light.svg?style=flat&logo=arduino&logoColor=white&color=%23F7DF1E)
 
 # Smart-Green-House-Berbasis-IoT-Mobile-Apps
 <strong>Tugas Akhir Edspert.id: Intensive Bootcamp Internet of Things Batch-10</strong><br><br>
@@ -69,9 +69,9 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 <th width="280">Diagram Ilustrasi untuk NodeMCU</th>
 </tr>
 <tr>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/cc47b1c3-2e62-4510-8784-e31fdeb50576" alt="infrastructure"></td>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/d4221d3f-5700-4917-bbb7-8482ba1181ae" alt="pd-esp32"></td>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/f6b335b1-8d32-4b20-bf87-1728741bf500" alt="pd-nodemcu"></td>
+<td><img src="Assets/Documentation/Diagram/Infrastructure.jpg" alt="infrastructure"></td>
+<td><img src="Assets/Documentation/Diagram/Pictorial Diagram 1.jpg" alt="pd-esp32"></td>
+<td><img src="Assets/Documentation/Diagram/Pictorial Diagram 2.jpg" alt="pd-nodemcu"></td>
 </tr>
 </table>
 <table>
@@ -79,7 +79,7 @@ Green House adalah bangunan untuk budidaya tanaman yang memiliki struktur atap d
 <th width="840">Diagram Sistem</th>
 </tr>
 <tr>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/de24e3ca-eceb-4695-98cd-93b95ebd4857" alt="systems-diagram"></td>
+<td><img src="Assets/Documentation/Diagram/Systems Diagram.jpg" alt="systems-diagram"></td>
 </tr>
 </table>
 
@@ -441,14 +441,14 @@ void loop() {
 <th width="420">Platform Antares untuk ESP32</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/232251195-d4f50edf-a28d-460a-9eb1-33799043839d.jpg" alt="product-esp32"></td>
-<td><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/a82e6b9c-eeeb-4e02-b400-0ff15a6d435a" alt="antaresplatform-esp32"></td>
+<td><img src="Assets/Documentation/Experiment/Percobaan Device 1 ESP32.jpg" alt="product-esp32"></td>
+<td><img src="Assets/Documentation/Experiment/Percobaan Device 1 Antares.jpg" alt="antaresplatform-esp32"></td>
 </tr>
 <tr>
 <th colspan="2">Konfigurasi MIT App Inventor untuk ESP32</th>
 </tr>
 <tr>
-<td colspan="2" width="840"><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/4e18ee4f-502b-4baf-bb3e-13377a574fb5" alt="mitappinventor-device1"></td>
+<td colspan="2" width="840"><img src="Assets/Documentation/Experiment/MIT App Inventor ESP32.jpg" alt="mitappinventor-device1"></td>
 </tr>
 </table>
 <table>
@@ -456,20 +456,20 @@ void loop() {
 <th colspan="2">Perangkat Pengendalian menggunakan NodeMCU</th>
 </tr>
 <tr>
-<td width="420"><img src="https://user-images.githubusercontent.com/54527592/235334045-e5839ed9-0137-468d-a2a7-d90ad109b88c.jpeg" alt="product-nodemcu-ac1"></td>
-<td width="420"><img src="https://user-images.githubusercontent.com/54527592/235334074-3574bafd-0e65-4c46-a4e7-5cddbca1bda1.jpeg" alt="product-nodemcu-ac2"></td>
+<td width="420"><img src="Assets/Documentation/Experiment/Percobaan Device 2 NodeMCU 1.jpg" alt="product-nodemcu-ac1"></td>
+<td width="420"><img src="Assets/Documentation/Experiment/Percobaan Device 2 NodeMCU 2.jpg" alt="product-nodemcu-ac2"></td>
 </tr>
 <tr>
 <th colspan="2">Platform Antares untuk NodeMCU</th>
 </tr>
 <tr>
-<td colspan="2" width="840"><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/c19cb5ae-b966-48ad-bfae-16353ea71b72" alt="antaresplatform-nodemcu"></td>
+<td colspan="2" width="840"><img src="Assets/Documentation/Experiment/Percobaan Device 2 Antares.jpg" alt="antaresplatform-nodemcu"></td>
 </tr>
 <tr>
 <th colspan="2">Konfigurasi MIT App Inventor untuk NodeMCU</th>
 </tr>
 <tr>
-<td colspan="2" width="840"><img src="https://github.com/devancakra/Smart-Green-House-Berbasis-IoT-Mobile-Apps/assets/54527592/b55c18fd-a6dd-4968-b21a-aec2bffbb1a9" alt="mitappinventor-device2"></td>
+<td colspan="2" width="840"><img src="Assets/Documentation/Experiment/MIT App Inventor NodeMCU.jpg" alt="mitappinventor-device2"></td>
 </tr>
 </table>
 <table>
@@ -477,8 +477,8 @@ void loop() {
 <th colspan="2">Simulasi Pemantauan dengan Aplikasi Mobile</th>
 </tr>
 <tr>
-<td width="420"><img src="https://user-images.githubusercontent.com/54527592/232251409-d26bd803-914e-40b1-8ed7-63053c5bfb14.png" alt="simulation-1"></td>
-<td width="420"><img src="https://user-images.githubusercontent.com/54527592/232251424-6beb90f9-8518-4426-b089-0cb01cd8488d.png" alt="simulation-2"></td>
+<td width="420"><img src="Assets/Documentation/Experiment/Percobaan Device 1 MIT App Inventor.jpg" alt="simulation-1"></td>
+<td width="420"><img src="Assets/Documentation/Experiment/Percobaan Device 2 MIT App Inventor.jpg" alt="simulation-2"></td>
 </tr>
 </table>
 
